@@ -1,0 +1,27 @@
+name: Test Kasir Apotek reconstruction
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Reconstruct application
+        run: node reconstruct.mjs
+      - name: Verify output exists
+        run: test -s dist/index.html
+      - name: Basic HTML sanity check
+        run: |
+          node --input-type=module -e "import { readFileSync } from 'node:fs'; const html = readFileSync('dist/index.html', 'utf8'); if (!/<html[\s>]/i.test(html) && !/<!doctype html/i.test(html)) throw new Error('Output does not look like HTML'); console.log('HTML output present:', html.length, 'characters');"
