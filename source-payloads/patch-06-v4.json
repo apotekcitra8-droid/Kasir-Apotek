@@ -1,0 +1,18 @@
+[
+  {
+    "o": "led:()=>vED()",
+    "n": "led:()=>vED2()"
+  },
+  {
+    "o": "Object.assign(old,v);old.batches=undefined;u++",
+    "n": "const e0=old.ed;Object.assign(old,v);if(!v.ed)old.ed=e0;old.batches=undefined;u++"
+  },
+  {
+    "o": "const APP_VERSION=\"v3\"",
+    "n": "const APP_VERSION=\"v4\""
+  },
+  {
+    "o": "function vBeli(){",
+    "n": "let edF=\"\",edQ=\"\";\nfunction edRows(){const all=db.products.flatMap(p=>p.stock>0?bat(p).filter(b=>b.qty>0).map(b=>({p,b,d:b.ed?edDays(b):null})):[]),f=edF||(all.some(x=>x.b.ed)?\"180\":\"none\"),ok=(x,k)=>k===\"lewat\"?x.d!==null&&x.d<0:k===\"90\"?x.d!==null&&x.d>=0&&x.d<=90:k===\"180\"?x.d!==null&&x.d>=0&&x.d<=180:k===\"none\"?x.d===null:true;\n return{all,f,ok,L:all.filter(x=>ok(x,f)).filter(x=>!edQ||x.p.name.toLowerCase().includes(edQ.toLowerCase())).sort((a,b)=>(a.b.ed||\"9\").localeCompare(b.b.ed||\"9\")||a.p.name.localeCompare(b.p.name))}}\nfunction vED2(){const{all,f,ok,L:A}=edRows(),L=A.slice(0,200),tab=(k,l)=>`<button data-edf=\"${k}\" class=\"${f===k?\"p\":\"\"}\" style=\"flex:none\">${l} (${all.filter(x=>ok(x,k)).length})</button>`;\n return `<div class=\"row\" style=\"overflow-x:auto;gap:8px;padding-bottom:8px\">${tab(\"lewat\",\"Lewat ED\")}${tab(\"90\",\"≤ 3 bulan\")}${tab(\"180\",\"≤ 6 bulan\")}${tab(\"none\",\"Belum ada ED\")}${tab(\"all\",\"Semua\")}</div>\n <div class=\"row\" style=\"margin:6px 0 10px\"><input id=\"edq\" placeholder=\"Cari produk…\" value=\"${esc(edQ)}\"><button data-edxls style=\"flex:none\">⬇ Excel</button></div>\n ${f===\"none\"?'<p class=\"mut\">Isi tanggal kedaluwarsa (ED) pada tiap produk di bawah. File produk belum memuat ED, jadi diisi saat pengecekan rak.</p>':\"\"}\n <div class=\"card\" style=\"padding:2px 12px\">${L.map(x=>`<div class=\"item row sp\"><div style=\"min-width:0\"><b>${esc(x.p.name)}</b>${x.d!==null&&x.d<0?'<span class=\"tag r\">ED lewat</span>':x.d!==null&&x.d<=90?'<span class=\"tag\">ED '+x.d+' hari</span>':\"\"}<div class=\"mut\">Stok ${x.b.qty} ${esc(x.p.unit)}${x.b.no?\" · batch \"+esc(x.b.no):\"\"}</div></div><input type=\"date\" data-edp=\"${x.p.id}|${esc(x.b.no)}\" value=\"${x.b.ed}\" style=\"width:150px;flex:none\"></div>`).join(\"\")||'<p class=\"mut\" style=\"padding:14px;text-align:center\">Tidak ada data.</p>'}${A.length>200?`<p class=\"mut\" style=\"padding:8px\">Menampilkan 200 dari ${A.length}. Gunakan pencarian.</p>`:\"\"}</div>`}\ndocument.addEventListener(\"input\",e=>{const i=e.target;if(i.id===\"edq\"){edQ=i.value;const p=i.selectionStart;render();const n=$(\"#edq\");n.focus();n.setSelectionRange(p,p)}});\ndocument.addEventListener(\"change\",e=>{const i=e.target;if(!i.dataset||!i.dataset.edp)return;const[id,no]=i.dataset.edp.split(\"|\"),p=db.products.find(x=>x.id==id);if(!p)return;const b=bat(p).find(b=>b.no===no&&b.qty>0);if(b){b.ed=i.value;sync(p);save();render()}});\ndocument.addEventListener(\"click\",e=>{const t=e.target.closest(\"[data-edf],[data-edxls]\");if(!t)return;const d=t.dataset;\n if(d.edf){edF=d.edf;render()}\n else{const{L}=edRows();xOut(\"LaporanED\",L.map(x=>({Produk:x.p.name,Stok:x.b.qty,Satuan:x.p.unit,Batch:x.b.no||\"\",ED:x.b.ed||\"\",\"Sisa Hari\":x.d===null?\"\":x.d})))}});\nfunction vBeli(){"
+  }
+]
