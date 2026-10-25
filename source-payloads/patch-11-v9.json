@@ -1,0 +1,22 @@
+[
+  {
+    "o": "<th>Harga Beli${lrOpen?\"\":\" 🔒\"}</th>",
+    "n": "<th>Harga Beli</th>"
+  },
+  {
+    "o": "<td>${lrOpen?rp(p.buy):\"••••\"}</td>",
+    "n": "<td>${rp(p.buy)}</td>"
+  },
+  {
+    "o": "${lrOpen?\"\":'<button data-askpw>🔒 Harga beli</button>'}<button data-xlow>",
+    "n": "<button data-xlow>"
+  },
+  {
+    "o": "...(lrOpen?[[\"buy\",\"Harga beli\",\"number\"]]:[]),",
+    "n": "[\"buy\",\"Harga beli\",\"number\"],"
+  },
+  {
+    "o": "const APP_VERSION=\"v8\"",
+    "n": "const APP_VERSION=\"v9\""
+  }
+]
