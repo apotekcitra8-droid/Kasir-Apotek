@@ -1,0 +1,38 @@
+[
+  {
+    "o": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js\"></script>\n",
+    "n": ""
+  },
+  {
+    "o": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap\" rel=\"stylesheet\">\n",
+    "n": ""
+  },
+  {
+    "o": "function xOut(name,rows){if(!rows.length)return alert(\"Tidak ada produk untuk diekspor.\");if(!window.XLSX)return alert(\"Pustaka Excel belum termuat.\");",
+    "n": "function xOut(name,rows){if(!rows.length)return alert(\"Tidak ada produk untuk diekspor.\");if(!window.XLSX)return needXlsx(()=>xOut(name,rows));"
+  },
+  {
+    "o": "function xImp(file){if(!window.XLSX)return alert(\"Pustaka Excel belum termuat.\");",
+    "n": "function xImp(file){if(!window.XLSX)return needXlsx(()=>xImp(file));"
+  },
+  {
+    "o": "function lpImport(file){if(!window.XLSX)return alert(\"Pustaka Excel belum termuat.\");",
+    "n": "function lpImport(file){if(!window.XLSX)return needXlsx(()=>lpImport(file));"
+  },
+  {
+    "o": "function edImport(file){if(!window.XLSX)return alert(\"Pustaka Excel belum termuat.\");",
+    "n": "function edImport(file){if(!window.XLSX)return needXlsx(()=>edImport(file));"
+  },
+  {
+    "o": "const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){}if(cdb)push()};",
+    "n": "const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cdb?{biz:db.biz,cashier:db.cashier,products:[],tx:[],purchases:[],expenses:[],patients:[],daily:[],seq:10}:db))}catch(e){}if(cdb)push()};"
+  },
+  {
+    "o": "const APP_VERSION=\"v7\"",
+    "n": "const APP_VERSION=\"v8\""
+  },
+  {
+    "o": "function vBeli(){",
+    "n": "function needXlsx(cb){const s=document.createElement(\"script\");s.src=\"https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js\";s.onload=cb;s.onerror=()=>alert(\"Gagal memuat pustaka Excel. Periksa koneksi internet.\");document.head.appendChild(s)}\nfunction vBeli(){"
+  }
+]
