@@ -1,0 +1,14 @@
+[
+  {
+    "o": "<button data-edxls style=\"flex:none\">⬇ Excel</button>",
+    "n": "<button data-edimp style=\"flex:none\">⬆ Import</button><button data-edxls style=\"flex:none\">⬇ Excel</button><input type=\"file\" id=\"edfile\" accept=\".xlsx,.xls\" hidden>"
+  },
+  {
+    "o": "const APP_VERSION=\"v5\"",
+    "n": "const APP_VERSION=\"v6\""
+  },
+  {
+    "o": "function vBeli(){",
+    "n": "function edNorm(s){s=String(s||\"\").trim();let m=s.match(/^(\\d{4})-(\\d{1,2})-(\\d{1,2})/);if(m)return m[1]+\"-\"+m[2].padStart(2,\"0\")+\"-\"+m[3].padStart(2,\"0\");m=s.match(/^(\\d{1,2})\\/(\\d{1,2})\\/(\\d{4})/);return m?m[3]+\"-\"+m[2].padStart(2,\"0\")+\"-\"+m[1].padStart(2,\"0\"):\"\"}\nfunction edImport(file){if(!window.XLSX)return alert(\"Pustaka Excel belum termuat.\");const r=new FileReader();r.onload=ev=>{try{\n const wb=XLSX.read(ev.target.result,{type:\"binary\"}),sn=[\"Laporan ED\",\"Batch ED\"].find(n=>wb.Sheets[n]);if(!sn)return alert(\"Sheet 'Laporan ED' atau 'Batch ED' tidak ditemukan di file ini.\");\n const rows=XLSX.utils.sheet_to_json(wb.Sheets[sn],{raw:false,defval:\"\"}),pm=new Map(),G=new Map();let bad=0,skip=0,app=0,nf=0;\n db.products.forEach(p=>{const q=nk(p.name);if(!pm.has(q))pm.set(q,p)});\n rows.forEach(x=>{const q=nk(x[\"Nama\"]||x[\"Produk\"]),ed=edNorm(x[\"ED\"]),qty=+x[\"Stok\"]||0,src=String(x[\"Sumber\"]||\"Batch\");if(!q)return;if(!ed||+ed.slice(0,4)<2000||+ed.slice(0,4)>2100){bad++;return}\n  const g=G.get(q)||G.set(q,{b:[],p:[]}).get(q);(src===\"Produk\"?g.p:g.b).push({ed,qty})});\n G.forEach((g,q)=>{const p=pm.get(q);if(!p){nf++;return}if(p.stock<=0)return;if(bat(p).some(b=>b.ed&&b.qty>0)){skip++;return}\n  const L=g.b.length?g.b:g.p,M=new Map();L.forEach(b=>M.set(b.ed,(M.get(b.ed)||0)+b.qty));\n  const A=[...M].map(([ed,qty])=>({no:\"\",ed,qty})).sort((a,b)=>a.ed.localeCompare(b.ed));let diff=A.reduce((s,b)=>s+b.qty,0)-p.stock;\n  if(diff>0)A.forEach(b=>{const t=Math.min(b.qty,diff);b.qty=r2(b.qty-t);diff=r2(diff-t)});else if(diff<0)A.push({no:\"\",ed:\"\",qty:r2(-diff)});\n  p.batches=A.filter(b=>b.qty>0);sync(p);app++});\n save();render();alert(app+\" produk diisi ED\"+(skip?\", \"+skip+\" dilewati (sudah punya ED)\":\"\")+(nf?\", \"+nf+\" nama tidak ditemukan\":\"\")+(bad?\", \"+bad+\" baris ED tidak valid diabaikan\":\"\")+\".\")}catch(e){alert(\"File Excel tidak bisa dibaca.\")}};r.readAsBinaryString(file)}\ndocument.addEventListener(\"click\",e=>{if(e.target.closest&&e.target.closest(\"[data-edimp]\")){const f=$(\"#edfile\");if(f)f.click()}});\ndocument.addEventListener(\"change\",e=>{const i=e.target;if(i.id===\"edfile\"){if(i.files[0])edImport(i.files[0]);i.value=\"\"}});\nfunction vBeli(){"
+  }
+]
