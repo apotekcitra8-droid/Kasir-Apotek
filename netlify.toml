@@ -1,0 +1,3 @@
+[build]
+  command = "node reconstruct.mjs"
+  publish = "dist"
