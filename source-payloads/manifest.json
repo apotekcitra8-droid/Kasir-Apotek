@@ -266,6 +266,14 @@
       "created_at": "2026-10-26 12:51:45.476428+00",
       "payload_chars": 165,
       "payload_file": "source-payloads/patch-35-v32.json"
+    },
+    {
+      "id": 36,
+      "kind": "patch",
+      "version": "v33",
+      "created_at": "2026-10-26",
+      "payload_chars": 235,
+      "payload_file": "source-payloads/patch-36-v33.json"
     }
   ]
 }
