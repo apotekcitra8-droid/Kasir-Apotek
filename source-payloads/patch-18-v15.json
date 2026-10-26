@@ -1,0 +1,1 @@
+[{"o":"o.push({l:mNm[m-1],om:g.om,pe:g.peng,lb:g.bers,n:g.n})","n":"o.push({l:mNm[m-1],om:g.om,pe:g.peng,lb:g.bers,n:db.tx.filter(t=>t.date>=k+\"-01\"&&t.date<=k+\"-\"+String(new Date(y,m,0).getDate()).padStart(2,\"0\")).length})"},{"o":"const APP_VERSION=\"v14\"","n":"const APP_VERSION=\"v15\""}]
