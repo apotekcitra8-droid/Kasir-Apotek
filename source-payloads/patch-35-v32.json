@@ -1,0 +1,1 @@
+[{"o":"if(nav)nav.insertBefore(btn,nav.firstChild);const panel=","n":"if(nav)nav.insertBefore(btn,nav.firstChild);else document.body.appendChild(btn);const panel="}]
