@@ -1,3 +1,4 @@
+# Automatic deployment workflow for the public Kasir Apotek repository.
 name: Build and deploy Kasir Apotek to GitHub Pages
 
 on:
