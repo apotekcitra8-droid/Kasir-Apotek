@@ -1,0 +1,1 @@
+[{"o":"const list=rows.filter(x=>(!q||x.name.toLowerCase().includes(q))&&(all||x.sold>0||x.stock<x.min));","n":"const list=rows.filter(x=>(!q||x.name.toLowerCase().includes(q))&&(all||x.sold>0||x.stock<x.min)&&x.order>0);"}]
