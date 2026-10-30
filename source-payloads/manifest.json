@@ -330,6 +330,14 @@
       "created_at": "2026-10-30",
       "payload_file": "source-payloads/patch-44-v41.json",
       "payload_chars": 205
+    },
+    {
+      "id": 45,
+      "kind": "patch",
+      "version": "v42",
+      "created_at": "2026-10-30",
+      "payload_file": "source-payloads/patch-45-v42.json",
+      "payload_chars": 1150
     }
   ]
 }
