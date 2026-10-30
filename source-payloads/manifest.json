@@ -314,6 +314,14 @@
       "created_at": "2026-10-30",
       "payload_file": "source-payloads/patch-41-v38.json",
       "payload_chars": 369
+    },
+    {
+      "id": 42,
+      "kind": "patch",
+      "version": "v39",
+      "created_at": "2026-10-30",
+      "payload_file": "source-payloads/patch-42-v39.json",
+      "payload_chars": 73
     }
   ]
 }
