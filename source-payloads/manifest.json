@@ -290,6 +290,14 @@
       "created_at": "2026-10-28",
       "payload_chars": 0,
       "payload_file": "source-payloads/patch-38-v35.json"
+    },
+    {
+      "id": 39,
+      "kind": "patch",
+      "version": "v36",
+      "created_at": "2026-10-30",
+      "payload_file": "source-payloads/patch-39-v36.json",
+      "payload_chars": 6031
     }
   ]
 }
