@@ -1,0 +1,1 @@
+[{"o":"if(!PB.editId&&nb>ob&&p.sell>0){p.sell=(Math.floor(p.sell/1000)+1)*1000;bump++}p.buy=nb});","n":"if(!PB.editId&&p.sell>0){p.sell=PB.round?tier(nb):Math.round(nb);bump++}p.buy=nb});"}]
