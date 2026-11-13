@@ -370,6 +370,14 @@
       "created_at": "2026-11-04",
       "payload_file": "source-payloads/patch-49-v46.json",
       "payload_chars": 3001
+    },
+    {
+      "id": 50,
+      "kind": "patch",
+      "version": "v47",
+      "created_at": "2026-11-13",
+      "payload_file": "source-payloads/patch-50-v47.json",
+      "payload_chars": 0
     }
   ]
 }
